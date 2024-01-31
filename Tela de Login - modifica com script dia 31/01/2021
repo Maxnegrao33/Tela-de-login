@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>Tela de Login com Menu Animado</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,9 +50,46 @@
         .login-form button:hover {
             background-color: #45a049;
         }
+
+        /* Estilo do menu animado */
+        .menu-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 15px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
     </style>
 </head>
 <body>
+
+<div class="menu-container" onclick="toggleMenu()">
+    <div class="menu-icon">&#9776;</div>
+</div>
 
 <div class="login-container">
     <form class="login-form" action="#" method="post">
@@ -61,7 +98,21 @@
         <input type="password" name="password" placeholder="Senha" required>
         <button type="submit">Entrar</button>
     </form>
+
+    <!-- Menu animado -->
+    <div class="menu" id="myMenu">
+        <a href="#">Página Inicial</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+    </div>
 </div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById("myMenu");
+        menu.style.display = (menu.style.display === "block") ? "none" : "block";
+    }
+</script>
 
 </body>
 </html>
